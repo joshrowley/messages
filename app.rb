@@ -16,6 +16,19 @@ get '/reset' do
   "Messages reset!"
 end
 
+get '/sendmessage' do
+	erb :sendmessage
+end
+
+post '/sendmessage' do
+	name = request.POST['name']
+	message = request.POST['message']
+	uri = URI("http://#{name}-messages.herokuapp.com")
+	res = Net::HTTP.post_form(uri, "message" => message)
+	@name = name
+	erb :sendmessage
+end
+
 post '/' do
   
   # TODO: Read the message contents, save to the database
