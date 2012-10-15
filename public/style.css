@@ -1,0 +1,103 @@
+/* https://gist.github.com/3381999 */
+
+body {
+}
+
+.iPhone {
+  margin: auto;
+  font: 14px 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  width: 320px;
+  border: 1px solid #404040;
+  border-radius: 3px;
+}
+
+.conversation {
+  height: 500px;
+  background-color: #dbe2ed;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  padding-top: 10px;
+  overflow: scroll;
+  border-radius: 3px;
+}
+
+.iPhone .text {
+  color: #000000;
+  border-radius:12px;
+  border: 1px solid rgba(0, 0, 0, 0.49);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+  opacity: 1;
+  max-width: 180px;
+  width: auto;
+  text-align: left;
+  height: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.iPhone .text .reflect {
+  z-index: 10;
+  width: 100%;
+  height: 12px;
+  border-radius:12px;
+  margin-right: auto;
+  margin-left: auto;
+  opacity: 1;
+  background: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.76) 100%) rgba(255, 255, 255, 0);
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0.76))) rgba(255, 255, 255, 0);
+  clear: both;
+  float: right;
+}
+
+.iPhone .text p {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 16px;
+  float: left;
+  max-width: 180px;
+  position: relative;
+  top: -7px;
+}
+
+.iPhone .text.sent {
+  float: right;
+  background: -moz-linear-gradient(90deg, #b6e74d 0%, #8fd13e 25.6%, #8acf43 79.9%, #4ab947 100%) #8fd13e;
+  background: -webkit-gradient(linear, left bottom, left top, from(#b6e74d), color-stop(0.256, #8fd13e), color-stop(0.799, #8acf43), to(#4ab947)) #8fd13e;
+  margin-left: 140px;
+}
+
+.iPhone .text.receive {
+  float: left;
+  word-wrap: break-word;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#e1e1e1), to(#e0e0e0));
+  background-image: -moz-linear-gradient(90deg, #e1e1e1 0%, #e0e0e0 100%);
+  margin-right: 116px;
+}
+
+.iPhone .time {
+  margin: 0 auto;
+  float:left;
+  width:100%
+}
+
+.iPhone .time p {
+  margin-top: 0;
+  text-align: center;
+  font-size: 12px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.96);
+  color: #7c899a;
+}
+
+.iPhone .text img {
+  max-width: 180px;
+}
+.iPhone a {
+  color: #0171f2;
+  text-decoration: underline;
+}
