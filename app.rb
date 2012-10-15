@@ -26,7 +26,10 @@ post '/' do
   end
   links.compact!
   links.each do |link|
-  	message_contents[link] = "<a href='#{link}'>#{link}</a>"
+  	if link.start_with?("http://")
+  		message_contents[link] = "<a href='#{link}'>#{link}</a>"
+  	else
+  		message_contents[link] = "<a href='http://#{link}'>#{link}</a>"
   end
 
 
