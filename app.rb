@@ -20,6 +20,16 @@ post '/' do
   
   # TODO: Read the message contents, save to the database
   message_contents = request.POST['message']
+  words = message_contents.split
+  links = words.map do |word|
+  	word if word.end_with?(".com")
+  end
+  links.compact!
+  links.each do |link|
+  	message_contents[link] = "<a href='#{link}'>#{link}</a>"
+  end
+
+
   @message_row = Message.new(:body => message_contents)
   @message_row.save
 
