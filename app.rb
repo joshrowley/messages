@@ -30,6 +30,7 @@ post '/' do
   		message_contents[link] = "<a href='#{link}'>#{link}</a>"
   	else
   		message_contents[link] = "<a href='http://#{link}'>#{link}</a>"
+  	end
   end
 
 
