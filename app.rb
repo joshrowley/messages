@@ -29,27 +29,28 @@ post '/' do
 
   links.each do |link|
   	if link.start_with?("http://")
-  		message_contents[link] = "<a href='#{link}'>#{link}</a>"
+  		message_contents[link] = "<a href=\"#{link}\">#{link}</a>"
   	else
-  		message_contents[link] = "<a href='http://#{link}'>#{link}</a>"
+  		message_contents[link] = "<a href=\"http://#{link}\">#{link}</a>"
   	end
   end
 
   # Creates img tags around any image
 
-  # images = words.map do |word|
-  # 	word if word.end_with?(".jpg") || word.end_with?(".gif") || word.end_with?(".png")
-  # 	end
-  # end
-  # images.compact!
+  imgs = words.map do |word|
+  	if word.end_with?(".jpg") || word.end_with?(".gif") || word.end_with?(".png")
+  		word
+  	end
+  end
+  imgs.compact!
 
-  # images.each do |image|
-  # 	if image.start_with?("http://")
-  # 		message_contents[image] = "<img src='http://#{image}'>"
-  # 	else
-  # 		message_contents[image] = "<img src='#{image}'>"
-  # 	end
-  # end
+  imgs.each do |img|
+  	if img.start_with?("http://")
+  		message_contents[img] = "<img src=\"#{img}\">"
+  	else
+  		message_contents[img] = "<img src=\"http://#{img}\">"
+  	end
+  end
 
 
   @message_row = Message.new(:body => message_contents)
