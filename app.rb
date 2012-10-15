@@ -37,20 +37,19 @@ post '/' do
 
   # Creates img tags around any image
 
-  images = words.map do |word|
-  	if word.end_with?(".jpg") || word.end_with(".gif") || word.end_with(".png")
-  		word
-  	end
-  end
-  images.compact!
+  # images = words.map do |word|
+  # 	word if word.end_with?(".jpg") || word.end_with?(".gif") || word.end_with?(".png")
+  # 	end
+  # end
+  # images.compact!
 
-  images.each do |image|
-  	if image.start_with?("http://")
-  		message_contents[image] = "<img src='http://#{image}'>"
-  	else
-  		message_contents[image] = "<img src='#{image}'>"
-  	end
-  end
+  # images.each do |image|
+  # 	if image.start_with?("http://")
+  # 		message_contents[image] = "<img src='http://#{image}'>"
+  # 	else
+  # 		message_contents[image] = "<img src='#{image}'>"
+  # 	end
+  # end
 
 
   @message_row = Message.new(:body => message_contents)
