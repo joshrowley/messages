@@ -26,7 +26,7 @@ post '/sendmessage' do
 	message = request.POST['message']
   sender = request.POST['sender']
 	uri = URI("http://#{name}-messages.herokuapp.com")
-	res = Net::HTTP.post_form(uri, "message" => message
+	res = Net::HTTP.post_form(uri, "message" => message,
                                   "sender" => sender)
 	@name = name
 	erb :sendmessage
