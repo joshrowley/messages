@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'json'
 require 'data_mapper'
+require 'net/http'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'])
 
@@ -23,8 +24,6 @@ end
 post '/sendmessage' do
 	name = request.POST['name']
 	message = request.POST['message']
-	puts name
-	puts message
 	uri = URI("http://#{name}-messages.herokuapp.com")
 	res = Net::HTTP.post_form(uri, "message" => message)
 	@name = name
