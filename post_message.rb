@@ -4,19 +4,21 @@ require "net/http"
 
 puts ""
 print "Who do you want to message? "
-name = gets.chomp
+name = gets.strip
 
 print "Your message: "
-message = gets.chomp
+message = gets.strip
+
+print "From: "
+sender = gets.strip
 
 puts ""
 print "Sending message..."
 
 uri = URI("http://#{name}-messages.herokuapp.com")
 
-# TODO: Post the message to the server
-
-res = Net::HTTP.post_form(uri, "message" => message)
+res = Net::HTTP.post_form(uri, "message" => message, 
+								"sender" => sender)
 
 puts "done!"
 puts "Result: #{res.body}"

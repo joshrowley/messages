@@ -34,6 +34,10 @@ post '/' do
   
   # TODO: Read the message contents, save to the database
   message_contents = request.POST['message']
+  sender = request.POST['sender']
+
+
+
   words = message_contents.split
   # Creates links around any input that ends in .com
   links = words.map do |word|
@@ -67,7 +71,8 @@ post '/' do
   end
 
 
-  @message_row = Message.new(:body => message_contents)
+  @message_row = Message.new(:body => message_contents, 
+  								:sender => sender)# add senders uri to db
   @message_row.save
 
   "Message posted!"
@@ -81,6 +86,7 @@ class Message
   property :id, Serial # Auto-increment integer id
   property :body, Text # A longer text block
   property :created_at, DateTime # Auto assigns data/time
+  property :sender, Text
   
 end
 

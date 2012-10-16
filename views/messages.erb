@@ -35,8 +35,15 @@
             <div class="reflect"></div>
             <p><%= m.body %></p>
             <p><%= m.created_at %></p>
+            <p>
+              <a href="http://<%= m.sender %>-messages.herokuapp.com">
+                Sent by <%= m.sender %>
+              </a>
+            </p>
           </div>
         <% end %>
+
+        <!-- Add senders uri link in here -->
         
       </div>
     </div>
