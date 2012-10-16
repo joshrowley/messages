@@ -24,8 +24,10 @@ end
 post '/sendmessage' do
 	name = request.POST['name']
 	message = request.POST['message']
+  sender = request.POST['sender']
 	uri = URI("http://#{name}-messages.herokuapp.com")
-	res = Net::HTTP.post_form(uri, "message" => message)
+	res = Net::HTTP.post_form(uri, "message" => message
+                                  "sender" => sender)
 	@name = name
 	erb :sendmessage
 end
@@ -38,8 +40,8 @@ post '/' do
 
 
 
-  words = message_contents.split
   # Creates links around any input that ends in .com
+  words = message_contents.split
   links = words.map do |word|
   	word if word.end_with?(".com")
   end
